@@ -95,6 +95,6 @@ public abstract class AbstractWordPuzzle {
 	 */
 	public String toString() {
 		// COMPLETE THIS
-		return this.puzzle+" : "+this.puzzle.toLowerCase();
+		return this.puzzle+" : "+getPuzzleWord().toLowerCase();
 	}
 }
