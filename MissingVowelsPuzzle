@@ -54,6 +54,7 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	public MissingVowelsPuzzle(String solution) {
 		// COMPLETE THIS
 		super(solution);
+		setPuzzleWord(computePuzzleWord(solution));	
 	}
 
 	/**
@@ -78,7 +79,7 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	 */
 	public MissingVowelsPuzzle(String solution, String[] otherSolutions) {
 		// COMPLETE THIS
-		
+		super(solution);
 	}
 
 	/**
@@ -119,6 +120,6 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	 */
 	private static String computePuzzleWord(String solution) {
 		// COMPLETE THIS
-		
+		return solution.replaceAll("[aeiou]", "_");
 	}
 }
