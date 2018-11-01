@@ -34,7 +34,12 @@ public class ReverseWordPuzzle extends AbstractWordPuzzle {
 	@Override
 	public String getSolution() {
 		// COMPLETE THIS
-		
+		solution="";
+		   for(int i = getPuzzleWord().length() - 1; i >= 0; i--)
+	        {
+	            solution = solution + getPuzzleWord().charAt(i);	
+	        }
+		return solution;
 	}
 
 }
