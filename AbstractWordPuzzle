@@ -1,5 +1,6 @@
 package eecs2030.lab5;
 
+import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -60,7 +61,7 @@ public abstract class AbstractWordPuzzle {
 	 */
 	public SortedSet<String> getSolutions() {
 		// COMPLETE THIS
-		SortedSet<String> sorted=new TreeSet();
+		SortedSet<String> sorted=new TreeSet<String>();
 		sorted.add(getPuzzleWord().toLowerCase());
 		return sorted;
 	}
@@ -95,6 +96,14 @@ public abstract class AbstractWordPuzzle {
 	 */
 	public String toString() {
 		// COMPLETE THIS
-		return this.puzzle+" : "+getPuzzleWord().toLowerCase();
+		Iterator<String> word=this.getSolutions().iterator();
+		String words="";
+		while(word.hasNext()) {
+			words=words+word.next();
+			if(word.hasNext()) {
+				words=words+", ";
+			}
+		}
+		return this.puzzle+" : "+words;
 	}
 }
