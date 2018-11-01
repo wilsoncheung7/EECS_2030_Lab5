@@ -53,8 +53,10 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	 */
 	public MissingVowelsPuzzle(String solution) {
 		// COMPLETE THIS
-		super(solution);
-		setPuzzleWord(computePuzzleWord(solution));	
+		super();
+		setPuzzleWord(computePuzzleWord(solution));
+		solutions=new TreeSet<String>();
+		solutions.add(solution);
 	}
 
 	/**
@@ -80,6 +82,18 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	public MissingVowelsPuzzle(String solution, String[] otherSolutions) {
 		// COMPLETE THIS
 		super(solution);
+		solutions=new TreeSet<String>();
+		solutions.add(solution);
+		setPuzzleWord(computePuzzleWord(solution));	
+		for(int i=0;i<otherSolutions.length;i++) {
+			if(computePuzzleWord(otherSolutions[i]).equals(computePuzzleWord(solution))) {
+				setPuzzleWord(computePuzzleWord(otherSolutions[i]));
+				solutions.add(otherSolutions[i]);
+			}
+			else {
+				throw new IllegalArgumentException("ok");				
+			}
+		}
 	}
 
 	/**
@@ -92,6 +106,7 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	public String getSolution() {
 		// COMPLETE THIS
 		
+		return solutions.first();
 	}
 
 	/**
@@ -106,7 +121,8 @@ public class MissingVowelsPuzzle extends AbstractWordPuzzle {
 	@Override
 	public SortedSet<String> getSolutions() {
 		// COMPLETE THIS
-		
+	
+		return solutions;
 	}
 
 	/**
