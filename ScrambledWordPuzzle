@@ -34,14 +34,18 @@ public class ScrambledWordPuzzle extends AbstractWordPuzzle {
 		// The easiest way to scramble the letters is to put them
 		// into a list, use Collections.shuffle, and then convert the
 		// the shuffled list of letters back into a string.
-		super(solutionWord);
+		super();
 		this.solution=solutionWord;
 		List<Character> scramble=new ArrayList<>();
 		for(char c:solutionWord.toCharArray()) {
 			scramble.add(c);
 		}
 		Collections.shuffle(scramble);
-		scramble.toString();
+		StringBuilder builder = new StringBuilder();
+		for (char c:scramble) {
+			builder.append(c);
+		}
+		setPuzzleWord(builder.toString());
 	}
 
 	/**
@@ -52,7 +56,7 @@ public class ScrambledWordPuzzle extends AbstractWordPuzzle {
 	@Override
 	public String getSolution() {
 		// COMPLETE THIS
-		return solution;
+		return this.solution;
 	}
 
 }
